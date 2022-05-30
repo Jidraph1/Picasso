@@ -54,5 +54,57 @@ class categories(models.Model):
 
 
 class Image(models.Model):
-    image= 
-
+    image = CloudinaryField('image')
+    name =  models.CharField(max_length =60)
+    description = models.TextField()
+    location = models.ForeignKey(Location,on_delete=models.CASCADE)
+    categories = models.ManyToManyField(categories) 
+    
+    def __str__(self):
+        """
+    A method that returns an image through its name
+     """
+        return self.name
+    
+    def save_image(self):
+        """
+    A method that saves an image
+     """
+        self.save()
+        
+    def delete_image(self):
+        """
+    A method that delets an image
+     """
+        self.delete()    
+    
+    def get_image_by_id(id):
+        """
+    A method that gets an image by its id
+     """
+        image = Image.objects.get(id)
+        return image
+        
+    @classmethod
+    def all_images(cls):
+        """
+    A method that gets all images
+     """
+        images = cls.objects.all()
+        return images    
+    
+    @classmethod
+    def search_image(cls,search_term):
+        """
+    A method that searches an image
+     """
+        images = cls.objects.filter(categories__category=search_term)
+        return images
+    
+    @classmethod
+    def filter_by_location(cls, location):
+        """
+    A method that filters images using a location
+     """
+        image_location = cls.objects.filter(location__location=location).all()
+        return image_location       
