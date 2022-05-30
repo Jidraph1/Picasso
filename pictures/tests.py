@@ -34,3 +34,21 @@ class LocationTestClass(TestCase):
         self.Nairobi.delete_location()
         locations = Location.objects.all()
         self.assertTrue(len(locations)==0)
+
+class categoriesTestClass(TestCase):       
+      # Set up method
+    def setUp(self):
+        self.Portrait= categories(category='Portrait')
+        
+    def test_instance(self):
+        self.assertTrue(isinstance(self.Portrait,categories))    
+        
+    def test_save_method(self):
+        self.Portrait.save_category()
+        categorie = categories.objects.all()
+        self.assertTrue(len(categorie)>0)    
+        
+    def test_delete_method(self):
+        self.Portrait.delete_category()
+        categorie = categories.objects.all()
+        self.assertTrue(len(categorie)==0)
