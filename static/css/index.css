@@ -1,0 +1,31 @@
+.intro-section {
+    padding: 5%;
+    background: linear-gradient(90deg, white 50%, #082032 50%);
+    height: 100vh;
+    
+}
+.hello-section, .pic-section {
+    margin: 7% auto;
+}
+
+p {
+    font-family: 'Inter';
+    color: #423F3E;
+    font-size: smaller;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto Slab';
+    
+}
+
+.intro-heading {
+    font-size: 3rem;
+}
+
+.btn-home {
+    background-color: #082032;
+    width: 40%;
+    color: white;
+    font-size: smaller;
+}
