@@ -9,7 +9,9 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 from pathlib import Path
 import os
 
@@ -39,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'pictures.apps.PicturesConfig',
+    'cloudinary',
     'bootstrap3',
 ]
 
@@ -85,6 +88,12 @@ DATABASES = {
     }
 }
 
+
+cloudinary.config( 
+  cloud_name = "dgkojinst", 
+  api_key = "938237336993178", 
+  api_secret = "PpuLrBceEgRwpOX1yU1Q2nOJIlE" 
+)
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
