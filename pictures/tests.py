@@ -16,3 +16,21 @@ class ImageTestClass(TestCase):
         self.James.save_image()
         images = Image.objects.all()
         self.assertTrue(len(images) > 0)  
+
+class LocationTestClass(TestCase):       
+      # Set up method
+    def setUp(self):
+        self.Nairobi= Location(location='Nairobi')
+        
+    def test_instance(self):
+        self.assertTrue(isinstance(self.Nairobi,Location))    
+        
+    def test_save_method(self):
+        self.Nairobi.save_location()
+        locations = Location.objects.all()
+        self.assertTrue(len(locations)>0)    
+        
+    def test_delete_method(self):
+        self.Nairobi.delete_location()
+        locations = Location.objects.all()
+        self.assertTrue(len(locations)==0)
